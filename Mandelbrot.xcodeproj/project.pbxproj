@@ -7,10 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		707723D62ADB583500D0FD70 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707723D52ADB583500D0FD70 /* SDL2.framework */; };
+		707723D72ADB583500D0FD70 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 707723D52ADB583500D0FD70 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		70B7DAB82ADB4FB000619D21 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70B7DAB72ADB4FB000619D21 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		707723D82ADB583500D0FD70 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				707723D72ADB583500D0FD70 /* SDL2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70B7DAB22ADB4FB000619D21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,8 +36,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		707723D22ADB547600D0FD70 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2/2.28.4/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		707723D42ADB57B800D0FD70 /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Frameworks; path = ../../../../Library/Frameworks; sourceTree = "<group>"; };
+		707723D52ADB583500D0FD70 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		70B7DAB42ADB4FB000619D21 /* Mandelbrot */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mandelbrot; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B7DAB72ADB4FB000619D21 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		70F098922ADB5B6200A79828 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				707723D62ADB583500D0FD70 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		707723D12ADB547600D0FD70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				707723D52ADB583500D0FD70 /* SDL2.framework */,
+				707723D42ADB57B800D0FD70 /* Frameworks */,
+				707723D22ADB547600D0FD70 /* libSDL2-2.0.0.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		70B7DAAB2ADB4FB000619D21 = {
 			isa = PBXGroup;
 			children = (
 				70B7DAB62ADB4FB000619D21 /* Mandelbrot */,
 				70B7DAB52ADB4FB000619D21 /* Products */,
+				707723D12ADB547600D0FD70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				70B7DAB72ADB4FB000619D21 /* main.cpp */,
+				70F098922ADB5B6200A79828 /* .gitignore */,
 			);
 			path = Mandelbrot;
 			sourceTree = "<group>";
@@ -72,6 +102,7 @@
 				70B7DAB02ADB4FB000619D21 /* Sources */,
 				70B7DAB12ADB4FB000619D21 /* Frameworks */,
 				70B7DAB22ADB4FB000619D21 /* CopyFiles */,
+				707723D82ADB583500D0FD70 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +272,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X83DHL5D83;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sdl2/2.28.4/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,6 +291,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X83DHL5D83;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/sdl2/2.28.4/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

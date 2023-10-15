@@ -28,7 +28,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(renderWidth, renderHeight), "Mandelbrot");
     sf::Texture texture;
     texture.create(renderWidth, renderHeight);
-    // Placeholder sprite while we render the image
+    // Placeholder sprite while rendering the image
     sf::Sprite sprite(texture);
     // Assign x- and y-axis
     const float minX = -2.0f, maxX = 2.0f;

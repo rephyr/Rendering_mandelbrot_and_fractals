@@ -19,6 +19,9 @@
 *.rar
 *.tar
 *.zip
+*.o
+makefile
+*.vscode
 
 # Logs and databases #
 ######################

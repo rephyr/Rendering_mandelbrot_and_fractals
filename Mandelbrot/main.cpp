@@ -18,13 +18,29 @@ int mandelbrotAlgo(std::complex<double> point){
             return iters;
         }
     }
+    return maxIter;
+}
+void renderImage(){
 
 }
+#include <SFML/Graphics.hpp>
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(renderWidth, 
-            renderHeight), "Mandelbrot");
- 
+    sf::RenderWindow window(sf::VideoMode(renderWidth, renderHeight), "Mandelbrot");
+    sf::Texture texture;
+    texture.create(renderWidth, renderHeight);
+    // Placeholder sprite while we render the image
+    sf::Sprite sprite(texture);
+    // Assign x- and y-axis
+    const float minX = -2.0f, maxX = 2.0f;
+    const float minY = -2.0f, maxY = 2.0f;
+    // To scale the screen resolution to use desired axis
+    const float scaleX = (maxX - minX) / renderWidth;
+    const float scaleY = (maxY - minY) / renderHeight;
+    float xAxis;
+    float yAxis;
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -34,7 +50,18 @@ int main()
                 window.close();
         }
 
-        window.clear();
+        sf::Image image;
+        image.create(renderWidth, renderHeight, sf::Color::Black);
+
+        // Iterate through every pixel in our window
+        for (int pixelX = 0; pixelX < renderWidth; ++pixelX)
+        {
+            for (int pixelY = 0; pixelY < renderHeight; ++pixelY)
+            {
+                xAxis = minX + pixelX * scaleX;
+                yAxis = maxY - pixelY * scaleY; 
+            }
+        }
         window.display();
     }
 

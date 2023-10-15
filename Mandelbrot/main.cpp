@@ -23,8 +23,6 @@ int mandelbrotAlgo(std::complex<double> point){
 void renderImage(){
 
 }
-#include <SFML/Graphics.hpp>
-
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(renderWidth, renderHeight), "Mandelbrot");
